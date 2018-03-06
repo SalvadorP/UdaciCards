@@ -29,6 +29,18 @@ class GenericButton extends Component {
         btst = StyleSheet.flatten([styles.blueBtn]);
         btstxt = StyleSheet.flatten([styles.blueBtnText]);
         break;
+      case "brightGreenBtn":
+        btst = StyleSheet.flatten([styles.brightGreenBtn]);
+        btstxt = StyleSheet.flatten([styles.brightGreenBtnText]);
+        break;
+      case "redBtn":
+        btst = StyleSheet.flatten([styles.redBtn]);
+        btstxt = StyleSheet.flatten([styles.redBtnText]);
+        break;
+      case "lightBlueBtn":
+        btst = StyleSheet.flatten([styles.lightBlueBtn]);
+        btstxt = StyleSheet.flatten([styles.lightBlueBtnText]);
+        break;
       default:
         break;
     }

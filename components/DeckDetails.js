@@ -44,18 +44,16 @@ class DeckDetails extends Component {
         <View style={styles.textContainer}>
           <Text style={styles.deckTitle}>{deckTitle}</Text>
           <Text style={styles.cardsNumber}>{cardsNumber + " cards"}</Text>
-        </View>
-        <View>
-          <GenericButton
-            btnStyle={"blueBtn"}
-            btnText={"Add Card"}
-            onPress={() =>
-              this.props.navigation.navigate("CreateCard", { title: deckTitle })
-            }
-            textStyle={"blueBtnText"}
-          />
-          {this.startQuiz()}
-        </View>
+        </View>      
+        <GenericButton
+          btnStyle={"blueBtn"}
+          btnText={"Add Card"}
+          onPress={() =>
+            this.props.navigation.navigate("CreateCard", { title: deckTitle })
+          }
+          textStyle={"blueBtnText"}
+        />
+        {this.startQuiz()}
       </View>
     );
   }
