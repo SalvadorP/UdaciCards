@@ -1,14 +1,113 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import { StyleSheet, View, StatusBar } from 'react-native';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducers';
+import DeckList from './components/DeckList';
+import DeckDetails from './components/DeckDetails';
+import CreateDeck from './components/CreateDeck';
+import CreateCard from './components/CreateCard';
+import Quiz from './components/Quiz';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+import { setLocalNotification } from './utils/helpers';
+import { white, ligthDarkGreen, yellow, black, darkGreen } from './utils/colors';
+import { Constants } from 'expo';
 
-export default class App extends React.Component {
+// TabNavigator Component.
+const Tabs = TabNavigator({
+  DeckList: {
+    screen: DeckList,
+    navigationOptions: {
+      tabBarLabel: 'Decks'
+    }
+  },
+  CreateDeck: {
+    screen: CreateDeck,
+    navigationOptions: {
+      tabBarLabel: 'Create Deck'
+    }
+  }  
+}, {
+  tabBarOptions: {
+    style: {
+      backgroundColor: ligthDarkGreen
+    },
+    labelStyle: {
+      color: black
+    }
+  }
+});
+
+// StackNavigator Component.
+const MainNavigator = StackNavigator({
+  Home: {
+    screen: Tabs,
+    navigationOptions: {
+      header: null
+    },    
+  },
+  DeckDetails: {
+    screen: DeckDetails,
+    navigationOptions: ({navigation}) => ({
+      title: `${navigation.state.params.title}`,
+      headerStyle: {
+        backgroundColor: black,
+      },
+      headerTitleStyle: {
+        color: white
+      },
+      headerTintColor: yellow
+    })
+  },  
+  CreateCard: {
+    screen: CreateCard,
+    navigationOptions: {
+      title: 'Create Card',
+      headerStyle: {
+        backgroundColor: black,
+      },
+      headerTitleStyle: {
+        color: white
+      },
+      headerTintColor: yellow
+    }
+  },
+  Quiz: {
+    screen: Quiz,
+    navigationOptions: {
+      title: 'Quiz',
+      headerStyle: {
+        backgroundColor: black,
+      },
+      headerTitleStyle: {
+        color: white
+      },
+      headerTintColor: yellow
+    }
+  }
+});
+
+function UdaciCardsStatusBar ({backgroundColor, ...props}) {
+  return (
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+    </View>
+  )
+}
+
+export default class App extends Component {
+  componentDidMount() {
+    // setLocalNotification();
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <Provider store={createStore(reducer)}>
+        <View style={styles.container}>
+          <UdaciCardsStatusBar backgroundColor={ligthDarkGreen} barStyle='light-content' />
+          <MainNavigator />
+        </View>
+      </Provider>
     );
   }
 }
@@ -16,8 +115,8 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // backgroundColor: '#fff',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });

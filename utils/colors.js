@@ -1,0 +1,16 @@
+export const black = "#000";
+export const grey = "#afafaf";
+export const yellow = "#ffff4d";
+export const green = "#047200";
+export const red = "#ca0e0c";
+export const blue = "#00a3cc";
+export const lightBlue = "#b3d9ff";
+export const lightDarkBlue = "#79a6d2";
+export const ligthDarkGreen = "#009999";
+export const lightGrey = "#dfdfdf";
+export const dark = "#555";
+export const darkGrey = "#404040";
+export const darkBlue = "#336699";
+export const darkOrange = "#e68a00";
+export const darkGreen = "#00664d";
+export const white = "#fff";
