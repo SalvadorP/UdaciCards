@@ -41,16 +41,10 @@ class DeckDetails extends Component {
     }
     return (
       <View style={stylesCustom.container}>
-        {
-          // Text
-        }
         <View style={styles.textContainer}>
           <Text style={styles.deckTitle}>{deckTitle}</Text>
           <Text style={styles.cardsNumber}>{cardsNumber + " cards"}</Text>
         </View>
-        {
-          // Buttons
-        }
         <View>
           <GenericButton
             btnStyle={"blueBtn"}
