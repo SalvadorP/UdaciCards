@@ -6,9 +6,7 @@
     "description": "Deck construction and flashcards quiz app",
     "slug": "udacicards",
     "version": "1.0",
-    "icon": "",
     "notification": {
-      "icon": ""
     },
     "ios": {
       "bundleIdentifier": "org.udacicards.exp"
