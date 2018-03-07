@@ -9,9 +9,10 @@ import CreateDeck from './components/CreateDeck';
 import CreateCard from './components/CreateCard';
 import Quiz from './components/Quiz';
 import { TabNavigator, StackNavigator } from 'react-navigation';
-import { setLocalNotification } from './utils/helpers';
+import { setLocalNotification, clearLocalNotification } from './utils/helpers';
 import { white, ligthDarkGreen, yellow, black, darkGreen } from './utils/colors';
 import { Constants } from 'expo';
+import { resetDB } from './utils/api';
 
 // TabNavigator Component.
 const Tabs = TabNavigator({
@@ -97,13 +98,15 @@ function UdaciCardsStatusBar ({backgroundColor, ...props}) {
 
 export default class App extends Component {
   componentDidMount() {
-    // setLocalNotification();
+    // resetDB();
+    // clearLocalNotification();
+    setLocalNotification();
   }
 
   render() {
     return (
       <Provider store={createStore(reducer)}>
-        <View style={styles.container}>
+        <View style={customStyles.container}>
           <UdaciCardsStatusBar backgroundColor={ligthDarkGreen} barStyle='light-content' />
           <MainNavigator />
         </View>
@@ -112,11 +115,8 @@ export default class App extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+const customStyles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
 });

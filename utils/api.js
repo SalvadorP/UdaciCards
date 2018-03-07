@@ -33,9 +33,11 @@ function testDecks() {
   return data;
 }
 
+export function resetDB() {
+  AsyncStorage.clear();
+}
+
 export function getAllDecks() {
-  // Reset everything
-  // AsyncStorage.clear();
   return AsyncStorage.getItem(DECKS_STORAGE_KEY).then(
     results => (results === null ? testDecks() : JSON.parse(results))
   );

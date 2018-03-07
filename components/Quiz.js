@@ -126,6 +126,14 @@ class Quiz extends Component {
               }
               textStyle={"orangeBtnText"}
             />
+            <GenericButton
+              btnStyle={"blackBtn"}
+              btnText={"Back to Deck List"}
+              onPress={() =>
+                this.props.navigation.navigate("DeckList", {})
+              }
+              textStyle={"blackBtnText"}
+            />
           </View>
         );
       } 
