@@ -44,7 +44,7 @@ export function getAllDecks() {
 }
 
 export function saveDeck(deck) {
-  getAllDecks().then(decks => {
+  getAllDecks().then((decks) => {
     if (!decks[deck.title]) {
       decks[deck.title] = deck;
       AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(decks));
@@ -53,9 +53,9 @@ export function saveDeck(deck) {
 }
 
 export function addCardToDeck(deck, { question, answer }) {
-  getAllDecks().then(decks => {
-    if (decks[deck] && decks[deck]["question"]) {
-      decks[deck]["question"].push({ question, answer });
+  getAllDecks().then((decks) => {
+    if (decks[deck] && decks[deck]["cards"]) {
+      decks[deck]["cards"].push({ question, answer });
     }
     AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(decks));
   });

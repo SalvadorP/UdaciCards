@@ -79,6 +79,7 @@ class Quiz extends Component {
     }));
   };
 
+  // IDEA: Think about refactor this or extract it to a component.
   displayCard = (question, answer, changeBetweenQA) => {
     const { front, correct, incorrect, totalCards, currentCard } = this.state;
     const { title } = this.props.navigation.state.params;
@@ -123,7 +124,7 @@ class Quiz extends Component {
           <GenericButton
             btnStyle={"blackBtn"}
             btnText={"Back to Deck List"}
-            onPress={() => this.props.navigation.navigate("DeckList", {})}
+            onPress={() => this.props.navigation.navigate("DeckList", {decks: this.props.decks})}
             textStyle={"blackBtnText"}
           />
         </View>

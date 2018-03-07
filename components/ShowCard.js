@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 import styles from "./Styles";
-
+// TODO: WIP, Refactor for the cards...
 class ShowCard extends Component {
 
     correctBtnSubmit = (() => {
