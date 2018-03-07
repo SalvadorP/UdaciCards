@@ -10,7 +10,7 @@ export default function(state = {}, action) {
     case ADD_DECK:
       return {
         ...state,
-        ...action.decks
+        ...action.deck
       };
     case ADD_CARD:
       const deck = { ...state };

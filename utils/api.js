@@ -39,12 +39,8 @@ export function resetDB() {
 
 export function getAllDecks() {
   return AsyncStorage.getItem(DECKS_STORAGE_KEY).then(
-    results => (results === null ? testDecks() : JSON.parse(results))
+    decks => (decks === null ? testDecks() : JSON.parse(decks))
   );
-}
-
-export function getDeck(id) {
-  return getAllDecks().then(decks => decks[id]);
 }
 
 export function saveDeck(deck) {

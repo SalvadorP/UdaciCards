@@ -25,9 +25,7 @@ class CreateCard extends Component {
     const { question, answer } = this.state;
     const title = this.props.navigation.state.params.title;
     if (question && answer) {
-      // Save to 'DB' (AsyncStorage has been used here).
-      addCardToDeck(title, { question, answer });
-
+      
       // Hide warning message
       this.setState({
         showMessage: false
@@ -35,6 +33,9 @@ class CreateCard extends Component {
 
       // Update Redux.
       this.props.dispatch(addCard({ title, question, answer }));
+
+      // Save to 'DB' (AsyncStorage has been used here).
+      addCardToDeck(title, { question, answer });
 
       // Go back.
       this.goBack();

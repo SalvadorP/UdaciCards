@@ -23,7 +23,7 @@ class CreateDeck extends Component {
     allFilled: false
   };
 
-  submit = () => {
+  submit = (() => {
     const { decks } = this.props;
     const { title } = this.state;
 
@@ -33,15 +33,15 @@ class CreateDeck extends Component {
         cards: []
       };
 
-      // Save to 'DB' (AsyncStorage).
-      saveDeck(newDeck);
-
       // Update Redux.
       this.props.dispatch(
         addDeck({
           [title]: newDeck
         })
       );
+
+      // Save to 'DB' (AsyncStorage).
+      saveDeck(newDeck);
 
       // Clean the title so if create deck is clicked again it will be empty.
       this.setState({
@@ -56,7 +56,7 @@ class CreateDeck extends Component {
         allFilled: true
       });
     }
-  };
+  });
 
   // Navigate to the DeckDetail View, passing a title property.
   gotoDeckDetails = title => {
