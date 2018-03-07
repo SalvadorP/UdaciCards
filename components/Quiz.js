@@ -98,7 +98,7 @@ class Quiz extends Component {
     } else {
       text =
         "You answered correctly to " +
-        correct * 100 / totalAnswers +
+        (correct * 100 / totalAnswers).toFixed(2) +
         "% of the questions.";
 
       clearLocalNotification().then(setLocalNotification);
