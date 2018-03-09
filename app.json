@@ -6,7 +6,9 @@
     "description": "Deck construction and flashcards quiz app",
     "slug": "udacicards",
     "version": "1.0",
+    "icon": "https://devaras.es/images/qmark-512.png",
     "notification": {
+      "icon": "https://devaras.es/images/qmark-45.png"
     },
     "ios": {
       "bundleIdentifier": "org.udacicards.exp"
